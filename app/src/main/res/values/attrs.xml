@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CellSettingView">
+        <attr name="cell_icon" format="reference"/>
+        <attr name="cell_text" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomMarker">
+        <attr name="image" format="reference"/>
+        <attr name="color" format="color"/>
+    </declare-styleable>
+
+</resources>

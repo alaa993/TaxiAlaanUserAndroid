@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/splash"
+    tools:context=".Activities.SplashScreen">
+
+    <LinearLayout
+        android:background="@color/text_color_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="fill_vertical"
+        android:visibility="gone"
+        android:id="@+id/ln_internet">
+
+        <com.taxialaan.app.Utils.MyBoldTextView
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/internet" />
+
+        <Button
+            android:id="@+id/btn_02_seting"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="@dimen/button_gap"
+            android:layout_marginEnd="@dimen/button_margin"
+            android:layout_weight="0.70"
+            android:background="@drawable/rounded_button"
+            android:padding="@dimen/button_padding"
+            android:text="@string/connect_to_wifi"
+            android:textColor="@color/button_text_color"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

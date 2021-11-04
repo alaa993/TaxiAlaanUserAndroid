@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "149906998170",
+    "firebase_url": "https://taxialaanuser.firebaseio.com",
+    "project_id": "taxialaanuser",
+    "storage_bucket": "taxialaanuser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149906998170:android:dc0ceda9e229aa39",
+        "android_client_info": {
+          "package_name": "com.taxialaan.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149906998170-5mgen8g3h7c5e0mq3m4p850n76gbts48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCirWS3mEhKY7VHoXHRtagbkTzCYoK2N3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149906998170-5mgen8g3h7c5e0mq3m4p850n76gbts48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

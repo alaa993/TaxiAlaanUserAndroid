@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/banner"
+    android:orientation="vertical"
+    android:scaleType="centerCrop">
+
+    <com.taxialaan.app.Utils.MyBoldTextView
+        android:id="@+id/validationTypeBtt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/sms_verification"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/country_code_layout"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_5sdp">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/border_stroke_black"
+                android:gravity="center"
+                app:ccp_showNameCode="false" />
+
+            <com.taxialaan.app.Utils.MyTextView
+                android:id="@+id/select_country_code"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/border_stroke_black"
+                android:gravity="center"
+                android:text="@string/select_country_code"
+                android:visibility="visible" />
+
+        </FrameLayout>
+
+
+        <com.taxialaan.app.Utils.MyEditText
+            android:id="@+id/phoneNrTextEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/border_stroke_black"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:paddingStart="@dimen/_5sdp" />
+
+    </LinearLayout>
+
+    <com.taxialaan.app.Utils.MyEditText
+        android:id="@+id/pinTextEdit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:background="@drawable/border_stroke_black"
+        android:hint="Pin"
+        android:inputType="numberPassword"
+        android:paddingStart="@dimen/_5sdp" />
+
+    <TextView
+        android:id="@+id/chargeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="@string/sms_alert"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal">
+
+        <com.taxialaan.app.Utils.MyButton
+            android:id="@+id/resetBtt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:text="Reset"
+            android:textColor="@color/text_color_white" />
+
+        <View
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:layout_marginEnd="@dimen/_1sdp"
+            android:background="@color/text_color_white" />
+
+        <com.taxialaan.app.Utils.MyButton
+            android:id="@+id/validateBtt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:text="Validate"
+            android:textColor="@color/text_color_white" />
+    </LinearLayout>
+
+</LinearLayout>

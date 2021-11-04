@@ -1,0 +1,139 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 29
+    //buildToolsVersion '28.0.0'
+    defaultConfig {
+        applicationId "com.taxialaan.app"
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 52
+        versionName "3.18"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    signingConfigs {
+        release {
+            storeFile file("taxialaan_user.jks")
+            storePassword "taxialaan_user"
+            keyAlias "taxialaan_user"
+            keyPassword "taxialaan_user"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        maven {
+            url uri('mint-plugin-repo-5.1.0')
+        }
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    packagingOptions {
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+    }
+
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral() // jcenter() works as well because it pulls from Maven Central
+    google()
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    //noinspection GradleCompatible
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.firebase:firebase-messaging:20.1.3'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.android.gms:play-services-ads:18.2.0'
+    implementation 'com.facebook.android:account-kit-sdk:5.4.0'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    //For error logcat
+    //compile 'com.facebook.android:account-kit-sdk:4.+'
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+    implementation 'androidx.annotation:annotation:1.0.2'
+    implementation 'com.facebook.android:facebook-android-sdk:4.29.0'
+
+    implementation 'com.braintreepayments:card-form:3.0.3'
+    implementation 'com.stripe:stripe-android:2.0.2'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:0.6.5'
+    implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
+    implementation 'com.koushikdutta.ion:ion:2.2.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.splunk:mint-android-sdk:5.1.0'
+    implementation 'com.github.citux:datetimepicker:0.2.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.afollestad.material-dialogs:commons:0.9.4.5'
+    implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.firebase:firebase-core:17.2.3'
+    implementation 'me.pushy:sdk:1.0.53'
+
+    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.shuhart.stepview:stepview:1.2.8'
+    implementation 'com.chaos.view:pinview:1.4.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.hbb20:ccp:2.3.4'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    implementation 'com.firebaseui:firebase-ui-auth:7.1.1'
+    implementation 'androidx.browser:browser:1.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+
+}
+
+apply plugin: 'com.google.gms.google-services'
